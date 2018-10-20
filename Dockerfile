@@ -1,9 +1,12 @@
 FROM node:4
 
+ADD config/sources.list /etc/apt/sources.list
 RUN \
   apt-get update --force-yes -y && \
   apt-get install -y --force-yes libzmq3-dev build-essential vim python
 
+RUN \
+  npm config set registry https://registry.npm.taobao.org
 RUN \
   npm install -g bitcore
 
