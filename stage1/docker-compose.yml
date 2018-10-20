@@ -6,7 +6,7 @@ services:
     build: .
     restart: always
     environment:
-      - TZ=Asia/Seoul
+      - TZ=Asia/Beijing
       - NETWORK=livenet
     ports:
       - 80:3001
