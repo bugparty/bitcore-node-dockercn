@@ -1,13 +1,15 @@
 FROM node:4
 
-#ADD config/sources.list /etc/apt/sources.list
+ADD config/sources.list /etc/apt/sources.list
 RUN \
   apt-get update --force-yes -y && \
   apt-get install -y --force-yes libzmq3-dev build-essential vim python
 
-#RUN npm config set registry https://registry.npm.taobao.org
+RUN npm config set registry https://registry.npm.taobao.org
+# ENV http_proxy http://192.168.2.22:8118
+# ENV npm_config_proxy=http://192.168.2.22:8118
 RUN \
-  npm install -g bitcore && npm -g install bitcore@4.1.0
+   npm -g install bitcore@4.1.0
 
 COPY . /src
 
